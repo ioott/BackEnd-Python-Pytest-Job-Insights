@@ -19,7 +19,7 @@ def get_unique_job_types(path: str) -> List[str]:
         DictReader_obj = csv.DictReader(file)
         for item in DictReader_obj:
             if item["job_type"] not in jobs:
-                jobs.append(dict(item)["job_type"])
+                jobs.append(item["job_type"])
         return jobs
 
 

@@ -8,7 +8,7 @@ def get_unique_industries(path: str) -> List[str]:
         DictReader_obj = csv.DictReader(file)
         for item in DictReader_obj:
             if item["industry"] not in industry and item["industry"] != "":
-                industry.append(dict(item)["industry"])
+                industry.append(item["industry"])
         return industry
 
 
