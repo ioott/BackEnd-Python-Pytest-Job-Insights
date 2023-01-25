@@ -90,14 +90,5 @@ def filter_by_salary_range(
 
         except ValueError:
             pass
-        # min_salary = verify_min_salary(item)
-        # max_salary = verify_max_salary(item)
-        # actual_salary = verify_actual_salary(salary)
-
-        # if min_salary and max_salary and actual_salary:
-        #     if min_salary <= actual_salary and max_salary >= actual_salary:
-        #         filtered_salaries.append(item)
-        # else:
-        #     pass
 
     return filtered_salaries
