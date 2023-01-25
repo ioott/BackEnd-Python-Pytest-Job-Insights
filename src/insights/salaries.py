@@ -24,30 +24,56 @@ def get_min_salary(path: str) -> int:
         return salary
 
 
+def verify_min_salary(job: Dict) -> int:
+    if type(job["min_salary"]) == int:
+        min_salary = job["min_salary"]
+        return min_salary
+    elif type(job["min_salary"]) == str and job["min_salary"].isnumeric():
+        min_salary = int(job["min_salary"])
+        return min_salary
+    else:
+        raise ValueError("formato inválido")
+
+
+def verify_max_salary(job: Dict) -> int:
+    if type(job["max_salary"]) == int:
+        max_salary = job["max_salary"]
+        return max_salary
+
+    elif type(job["max_salary"]) == str and job["max_salary"].isnumeric():
+        max_salary = int(job["max_salary"])
+        return max_salary
+    else:
+        raise ValueError("formato inválido")
+
+
+def verify_actual_salary(salary: Union[int, str]) -> int:
+    if type(salary) == int:
+        actual_salary = salary
+        return actual_salary
+    elif type(salary) == str and salary.isnumeric():
+        actual_salary = int(salary)
+        return actual_salary
+    else:
+        raise ValueError("formato inválido")
+
+
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
-    """Checks if a given salary is in the salary range of a given job
+    if "min_salary" not in job or "max_salary" not in job:
+        raise ValueError("faltam informações")
 
-    Parameters
-    ----------
-    job : dict
-        The job with `min_salary` and `max_salary` keys
-    salary : int
-        The salary to check if matches with salary range of the job
+    try:
+        min_salary = verify_min_salary(job)
+        max_salary = verify_max_salary(job)
+        actual_salary = verify_actual_salary(salary)
 
-    Returns
-    -------
-    bool
-        True if the salary is in the salary range of the job, False otherwise
+    except ValueError:
+        raise ValueError("formato inválido")
 
-    Raises
-    ------
-    ValueError
-        If `job["min_salary"]` or `job["max_salary"]` doesn't exists
-        If `job["min_salary"]` or `job["max_salary"]` aren't valid integers
-        If `job["min_salary"]` is greather than `job["max_salary"]`
-        If `salary` isn't a valid integer
-    """
-    raise NotImplementedError
+    if min_salary > max_salary:
+        raise ValueError("informações incorretas")
+
+    return min_salary <= actual_salary and max_salary >= actual_salary
 
 
 def filter_by_salary_range(
