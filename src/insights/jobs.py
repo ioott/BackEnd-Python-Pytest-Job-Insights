@@ -7,21 +7,21 @@ import csv
 def read(path: str) -> List[Dict]:
     jobs = []
     with open(path, "r") as file:
-        DictReader_obj = csv.DictReader(file)
-        for item in DictReader_obj:
-            jobs.append(dict(item))
+        all_jobs = csv.DictReader(file)
+        for job in all_jobs:
+            jobs.append(dict(job))
         return jobs
 
 
 def get_unique_job_types(path: str) -> List[str]:
     jobs = []
     with open(path, "r") as file:
-        DictReader_obj = csv.DictReader(file)
-        for item in DictReader_obj:
-            if item["job_type"] not in jobs:
-                jobs.append(item["job_type"])
+        all_jobs = csv.DictReader(file)
+        for job in all_jobs:
+            if job["job_type"] not in jobs:
+                jobs.append(job["job_type"])
         return jobs
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
-    return [item for item in jobs if job_type == item["job_type"]]
+    return [job for job in jobs if job_type == job["job_type"]]
