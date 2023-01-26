@@ -5,22 +5,22 @@ import csv
 def get_max_salary(path: str) -> int:
     salary = 0
     with open(path, "r") as file:
-        DictReader_obj = csv.DictReader(file)
-        for item in DictReader_obj:
-            if item["max_salary"].isnumeric():
-                if int(item["max_salary"]) > salary:
-                    salary = int(item["max_salary"])
+        all_jobs = csv.DictReader(file)
+        for job in all_jobs:
+            if job["max_salary"].isnumeric():
+                if int(job["max_salary"]) > salary:
+                    salary = int(job["max_salary"])
         return salary
 
 
 def get_min_salary(path: str) -> int:
     salary = get_max_salary(path)
     with open(path, "r") as file:
-        DictReader_obj = csv.DictReader(file)
-        for item in DictReader_obj:
-            if item["min_salary"].isnumeric():
-                if int(item["min_salary"]) < salary:
-                    salary = int(item["min_salary"])
+        all_jobs = csv.DictReader(file)
+        for job in all_jobs:
+            if job["min_salary"].isnumeric():
+                if int(job["min_salary"]) < salary:
+                    salary = int(job["min_salary"])
         return salary
 
 
@@ -83,10 +83,10 @@ def filter_by_salary_range(
 
     filtered_salaries = []
 
-    for item in jobs:
+    for job in jobs:
         try:
-            if matches_salary_range(item, salary):
-                filtered_salaries.append(item)
+            if matches_salary_range(job, salary):
+                filtered_salaries.append(job)
 
         except ValueError:
             pass
