@@ -1,10 +1,15 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## Projeto BackEnd, utilizando Python e Pytest.
+
+<img alt="Python" src="https://img.shields.io/badge/-Python-black?style=flat-square&logo=python">
+
+Primeiro projeto de Python, para implementar análises a partir de um conjunto de dados sobre empregos. 
+
+Mostra habilidade de : 
+* Utilizar o terminal interativo do Python;
+* Utilizar estruturas condicionais e de repetição;
+* Utilizar funções built-in do Python;
+* Utilizar tratamento de exceções;
+* Realizar a manipulação de arquivos;
+* Escrever funções em Python;
+* Escrever testes com Pytest;
+* Escrever meus próprios módulos e importá-los em outros códigos.
